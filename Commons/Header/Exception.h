@@ -11,10 +11,10 @@
 class invalidCommandException: public std::exception
 {
 private:
-    const char *_verbose;
+    const std::string _verbose;
 public:
 
-    explicit invalidCommandException(const char * verbose);
+    explicit invalidCommandException(std::string  verbose);
     const char * what() const noexcept override;
 };
 

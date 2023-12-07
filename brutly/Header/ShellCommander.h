@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by moshe on 31/10/2023.
 //
@@ -7,8 +9,6 @@
 #ifndef UNTITLED_SHELLCOMMANDER_H
 #define UNTITLED_SHELLCOMMANDER_H
 
-#include <string>
-
 class RunningResult{
 
 public:
@@ -16,14 +16,15 @@ public:
     const std::string Verbose;
     const std::string AdditionalInfo;
 
-    RunningResult(const int exitCode, const std::string& verbose, const std::string& additionalInfo = "")
-                : ExitCode(exitCode), Verbose(verbose), AdditionalInfo(additionalInfo) {}
+    //strings without '&' because there is a move ctor
+    RunningResult(const int exitCode, std::string verbose, std::string additionalInfo = "")
+                : ExitCode(exitCode), Verbose(std::move(verbose)), AdditionalInfo(std::move(additionalInfo)) {}
 };
 
 class ShellCommander {
 public:
-    RunningResult run(char* cmd) ;
-    RunningResult run(char* cmd, std::ofstream& outfile) ;
+    RunningResult run(const std::string& cmd) const;
+    RunningResult run(const std::string& cmd, std::ofstream& outfile) const;
 };
 
 

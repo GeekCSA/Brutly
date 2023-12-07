@@ -1,4 +1,3 @@
-using namespace std;
 
 #include <ostream>
 #include <fstream>
@@ -46,7 +45,7 @@ int main() {
 //            "/home/test/Downloads/89-6ssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd873 - למידה באמצעות חיזוקים.docx"
     };
 
-    cout << "Finish!" << endl;
+    std::cout << "Finish!" << std::endl;
 
     fileStream.close();
 
